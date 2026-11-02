@@ -1,0 +1,42 @@
+#
+# ~/.bashrc — managed by chezmoi (github.com/dairycow/dotfiles)
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# shellcheck source=~/.profile
+[[ -f ~/.profile ]] && . ~/.profile
+
+export EDITOR=nvim
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+# gh CLI: auto-switch active account to match the current repo's remote.
+[ -f "$HOME/.config/gh-autoswitch.sh" ] && . "$HOME/.config/gh-autoswitch.sh"
+
+# --- history ---
+HISTSIZE=100000
+HISTFILESIZE=200000
+HISTCONTROL=ignoreboth:erasedups
+HISTTIMEFORMAT='%F %T '
+shopt -s histappend
+
+# --- git + eza aliases ---
+alias gs='git status'
+alias gp='git pull'
+alias gll='git log --oneline -n 20'
+alias ll='eza -la --git'
+
+# --- tmux aliases ---
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
+
+# --- navigation ---
+[[ -d "$HOME/Projects" ]] && export CDPATH=.:$HOME/Projects
+shopt -s autocd
+
+# Machine-local extras (personal tooling) — unmanaged, never committed.
+[ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"

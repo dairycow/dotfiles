@@ -1,0 +1,12 @@
+# ~/.zshrc — managed by chezmoi (github.com/dairycow/dotfiles)
+
+[ -f /usr/share/cachyos-zsh-config/cachyos-config.zsh ] \
+    && source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+# gh CLI: auto-switch active account to match the current repo's remote.
+[ -f "$HOME/.config/gh-autoswitch.sh" ] && . "$HOME/.config/gh-autoswitch.sh"
+
+# Machine-local extras (personal tooling) — unmanaged, never committed.
+[ -f "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"

@@ -1,0 +1,29 @@
+#
+# ~/.profile — environment for login + interactive shells (chezmoi-managed)
+#
+
+# CUDA toolkit (only where installed; guarded against PATH duplication)
+if [ -d /opt/cuda ]; then
+    export CUDA_HOME=/opt/cuda
+    case ":$PATH:" in
+        *":$CUDA_HOME/bin:"*) ;;
+        *) PATH="$CUDA_HOME/bin:$PATH" ;;
+    esac
+    case ":$LD_LIBRARY_PATH:" in
+        *":$CUDA_HOME/lib64:"*) ;;
+        *) LD_LIBRARY_PATH="$CUDA_HOME/lib64${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" ;;
+    esac
+    export PATH LD_LIBRARY_PATH
+fi
+
+# User-local binaries (uv shims, cargo-installed tools)
+if [ -d "$HOME/.local/bin" ]; then
+    case ":$PATH:" in
+        *":$HOME/.local/bin:"*) ;;
+        *) PATH="$HOME/.local/bin:$PATH"; export PATH ;;
+    esac
+fi
+
+# Language tooling envs — present only where installed (uv, rustup)
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

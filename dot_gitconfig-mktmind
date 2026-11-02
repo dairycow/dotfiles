@@ -1,0 +1,5 @@
+# Applied to repos whose remote is github.com/mktmind/** (the mktmind org),
+# via includeIf in ~/.gitconfig. Default identity everywhere else is dairycow.
+[user]
+	email = 226925265+mktmind-hf@users.noreply.github.com
+	name = mktmind-hf

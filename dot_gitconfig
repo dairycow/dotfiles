@@ -1,0 +1,19 @@
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
+[user]
+	email = 33767638+dairycow@users.noreply.github.com
+	name = dairycow
+[init]
+	defaultBranch = main
+[includeIf "hasconfig:remote.*.url:git@github-mktmind:mktmind/**"]
+	path = ~/.gitconfig-mktmind
+[includeIf "hasconfig:remote.*.url:git@github.com:mktmind/**"]
+	path = ~/.gitconfig-mktmind
+[includeIf "hasconfig:remote.*.url:https://github.com/mktmind/**"]
+	path = ~/.gitconfig-mktmind
+[url "git@github-mktmind:mktmind/"]
+	insteadOf = https://github.com/mktmind/

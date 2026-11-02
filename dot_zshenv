@@ -1,0 +1,7 @@
+# ~/.zshenv — managed by chezmoi (github.com/dairycow/dotfiles)
+
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

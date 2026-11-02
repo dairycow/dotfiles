@@ -1,0 +1,20 @@
+# ~/.ssh/config — managed by chezmoi (github.com/dairycow/dotfiles).
+# Machine/employer-specific hosts live unmanaged in ~/.ssh/config.local,
+# which is never committed. NOTE: the Include must stay ABOVE all Host
+# blocks — an Include after a Host block is scoped inside it and never
+# matches anything.
+Include config.local
+
+# Default GitHub identity: dairycow (personal).
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_dairycow
+    IdentitiesOnly yes
+
+# mktmind org identity (see the includeIf rules in ~/.gitconfig).
+Host github-mktmind
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_mktmind
+    IdentitiesOnly yes

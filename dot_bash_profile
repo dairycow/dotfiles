@@ -1,0 +1,9 @@
+#
+# ~/.bash_profile — login entry point (chezmoi-managed)
+#
+
+# shellcheck source=~/.profile
+[[ -f ~/.profile ]] && . ~/.profile
+
+# shellcheck source=~/.bashrc
+[[ -f ~/.bashrc ]] && . ~/.bashrc
